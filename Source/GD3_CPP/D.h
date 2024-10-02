@@ -4,23 +4,17 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "CustomCube.generated.h"
+#include "D.generated.h"
 
-UCLASS(Blueprintable)
-class GD3_CPP_API ACustomCube : public AActor
+UCLASS()
+class GD3_CPP_API AD : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	ACustomCube();
-	UPROPERTY(EditAnywhere,BlueprintReadWrite)
-	FLinearColor FinalColor;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	UMaterialInstance* Material;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	UStaticMeshComponent* CubeMesh;
-	
+	AD();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -28,6 +22,5 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	UFUNCTION(BlueprintCallable)
-	void ChangeColor();
+
 };
