@@ -5,6 +5,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "TimerManager.h"
 #include "Engine/World.h"
+#include "Blueprint/UserWidget.h"
 
 AGM_Collectible::AGM_Collectible()
 {
@@ -42,5 +43,17 @@ void AGM_Collectible::EndGame()
 {
     // Code pour arrêter le jeu, par exemple, afficher un écran de fin ou arrêter le niveau
     UGameplayStatics::SetGamePaused(GetWorld(), true);
-    UE_LOG(LogTemp, Warning, TEXT("Le temps est ecoule ! Le jeu est termine : \""));
+   
+    // Vérifiez si la classe de widget est assignée
+    if (WB_HUDMINIGAME_Class)
+    {
+        // Créez une instance du widget
+        UUserWidget* EndCollectibleInstance = CreateWidget<UUserWidget>(GetWorld(), WB_HUDMINIGAME_Class);
+
+        if (EndCollectibleInstance)
+        {
+            // Ajoutez le widget au viewport pour l'afficher à l'écran
+            EndCollectibleInstance->AddToViewport();
+        }
+    }
 }
