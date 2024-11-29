@@ -52,7 +52,6 @@ public:
 
     UPROPERTY(EditDefaultsOnly, Category = "UI")
     TSubclassOf<UUserWidget> WB_HUDMINIGAME_Class;  // Référence à la classe de widget
-
     void EndGame();
 
 private:
