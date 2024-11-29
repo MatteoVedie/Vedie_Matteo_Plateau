@@ -12,15 +12,22 @@ class GD3_CPP_API ACollectible : public AActor
 	GENERATED_BODY()
 	
 public:	
-	// Sets default values for this actor's properties
 	ACollectible();
 
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:	
-	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+public :
+	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
+
+	// Points attribués (positifs ou négatifs)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, category = "Collectible")
+	int32 Points;
+
+	// Référence au Mesh (géré dans le Blueprint)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Collectible", meta = (AllowPrivateAccess = "true"))
+	UStaticMeshComponent* Mesh;
 };
