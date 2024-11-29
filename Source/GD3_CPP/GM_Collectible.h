@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
-#include "Blueprint/UserWidget.h"
 #include "GM_Collectible.generated.h"
 
 /**
@@ -50,8 +49,6 @@ public:
     // Fonction pour arrêter le jeu lorsque le temps est écoulé
     UFUNCTION(BlueprintCallable, Category = "HUD")
 
-    UPROPERTY(EditDefaultsOnly, Category = "UI")
-    TSubclassOf<UUserWidget> WB_HUDMINIGAME_Class;  // Référence à la classe de widget
     void EndGame();
 
 private:
