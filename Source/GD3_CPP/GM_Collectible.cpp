@@ -16,7 +16,7 @@ AGM_Collectible::AGM_Collectible()
 void AGM_Collectible::BeginPlay()
 {
     Super::BeginPlay();
-    GameTime = 80.0f;
+    GameTime =40.0f;
     UE_LOG(LogTemp, Warning, TEXT("Le jeu commence avec GameTime = %.2f"), GameTime);
     // Démarrer un timer pour mettre à jour la variable GameTime
     GetWorld()->GetTimerManager().SetTimer(GameTimerHandle, this, &AGM_Collectible::UpdateTimer, 1.0f, true);
